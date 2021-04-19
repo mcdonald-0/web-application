@@ -4,14 +4,13 @@ from .forms import *
 
 
 def index(requests):
-    context ={}
-    return render(requests, 'homepage/index2.html', context)
+    context = {}
+    return render(requests, 'homepage/index.html', context)
 
 
 def image_view(requests):
     if requests.method == "POST":
         form = ImageUpload(requests.POST, requests.FILES)
-
         if form.is_valid():
             form.save()
             return redirect('success')
