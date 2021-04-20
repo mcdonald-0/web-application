@@ -1,6 +1,5 @@
 from django.db import models
-# import login
-# from login.signup.models import UserDetail
+# from login.usersignup.models import UserDetail
 # TODO: i need to rectify the error created (ModuleNotFoundError)that keep coming when i tried importing
 #   UserDetails from signup.models.
 

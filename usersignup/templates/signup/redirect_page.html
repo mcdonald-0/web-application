@@ -1,0 +1,22 @@
+{% extends 'signup/base.html' %}
+
+{% block content %}
+    <h2>Hello <big>{{ first_name }}</big> thanks for signing up.</h2>
+<p>We will redirect you shortly to our home page.</p>
+
+<!-- This below is the timed JavaScript redirect function -->
+<div id="counter">5</div>
+<script>
+    setInterval(function() {
+        var div = document.querySelector("#counter");
+        var count = div.textContent * 1 - 1;
+        div.textContent = count;
+        if (count <= 0) {
+            window.location.replace("{% url 'homepage:homepage' %}");
+        }
+    }, 1000);
+</script>
+<!-- I need to change the url in the link, so that each signup has a unique identifier
+so it can't be accessed through the url.
+-->
+{% endblock %}
