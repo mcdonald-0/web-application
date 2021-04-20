@@ -1,5 +1,8 @@
 from django.db import models
+# import login
 # from login.signup.models import UserDetail
+# TODO: i need to rectify the error created (ModuleNotFoundError)that keep coming when i tried importing
+#   UserDetails from signup.models.
 
 
 class UploadProfilePicture(models.Model):
@@ -10,6 +13,7 @@ class UploadProfilePicture(models.Model):
 
 
 class Profile(models.Model):
+    # u = login.signup.models.UserDetail
     # user = models.ForeignKey(UserDetail, on_delete=models.CASCADE)
     pass
 
