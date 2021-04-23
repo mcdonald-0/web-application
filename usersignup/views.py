@@ -2,8 +2,11 @@ from django.shortcuts import render, reverse
 from .models import UserDetail, WebDetail
 from .forms import CreateProfileForm, LoginForm
 from django.shortcuts import redirect
-from django.http import HttpResponse, Http404
-from verify_email.email_handler import send_verification_email
+from django.http import HttpResponse
+from django.views import View
+
+# TODO: i need to convert these views to class based views so i need to do some research about class based
+#   views and i need to implement them here
 
 
 def index(requests):
@@ -60,10 +63,10 @@ def create_web_profile(requests):
 
 
 def redirect_page(requests):
-    first_name, last_name = user['first_name'], user['last_name']
+    # first_name, last_name = user['first_name'], user['last_name']
     context = {
-        'first_name': first_name,
-        'last_name': last_name,
+        # 'first_name': first_name,
+        # 'last_name': last_name,
     }
     return render(requests, 'signup/redirect_page.html', context)
 

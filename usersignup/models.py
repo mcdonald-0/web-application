@@ -1,5 +1,13 @@
 from django.db import models
-from login.homepage.models import Profile
+
+
+class WebDetail(models.Model):
+    # user = models.OneToOneField(UserDetail, on_delete=models.CASCADE, primary_key=True,)
+    username = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.username
 
 
 class UserDetail(models.Model):
@@ -7,13 +15,9 @@ class UserDetail(models.Model):
     middle_name = models.CharField(max_length=255, blank=True, null=True)
     last_name = models.CharField(max_length=255)
     email = models.EmailField()
+    user = models.ForeignKey(WebDetail, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.first_name
 
-
-class WebDetail(UserDetail):
-    # user = models.OneToOneField(UserDetail, on_delete=models.CASCADE, primary_key=True,)
-    username = models.CharField(max_length=255)
-    password = models.CharField(max_length=255)
 

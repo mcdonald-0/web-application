@@ -1,9 +1,9 @@
-{% extends 'signup/base.html' %}
+{% extends 'usersignup/base.html' %}
 
 {% block content %}
 {% if login_error %}
     <strong><big>{{ login_error }}</big></strong><br>
-    <a href="{% url 'signup:create_profile' %}">Create an account</a>
+    <a href="{% url 'usersignup:create_profile' %}">Create an account</a>
 {% else %}
     <form method="POST">{% csrf_token %}
     {{ form.as_p }}
