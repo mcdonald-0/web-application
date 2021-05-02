@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'usersignup.apps.UsersignupConfig',
-    'homepage.apps.HomepageConfig',
+    'usersignup',
+    # 'validate_user'
     'verify_email',
 ]
 

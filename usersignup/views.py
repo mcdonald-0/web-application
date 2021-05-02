@@ -26,7 +26,7 @@ def login(requests):
                 context = {
                     'login_error': 'Sorry, you do not have an account, try creating one!',
                 }
-                return render(requests, 'profile.html', context)
+                return render(requests, 'signup/profile.html', context)
     context = dict(form=form)
     return render(requests, 'signup/login.html', context)
 

@@ -15,7 +15,7 @@ class UserDetail(models.Model):
     middle_name = models.CharField(max_length=255, blank=True, null=True)
     last_name = models.CharField(max_length=255)
     email = models.EmailField()
-    user = models.ForeignKey(WebDetail, on_delete=models.CASCADE)
+    user = models.OneToOneField(WebDetail, on_delete=models.CASCADE, primary_key=True)
 
     def __str__(self):
         return self.first_name

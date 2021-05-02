@@ -5,8 +5,13 @@ from django.core.validators import ValidationError
 
 
 def has_only_english(word):
-    all_alphabets = "[\u0041-\u005A\-]*" "[\u0061-\u007A\-]*"
+    all_alphabets = '[\u0041-\u007A\-]*'
     return bool(re.fullmatch(all_alphabets, word))
+
+
+def has_symbols(word):
+    symbols = '[\u005B-\u0060\-]*'
+    return bool(re.fullmatch(symbols, word))
 
 
 class LoginForm(forms.Form):
@@ -68,6 +73,12 @@ class CreateProfileForm(forms.Form):
             return self.cleaned_data['first_name']
         error_message = 'This has to be plain english, e.g John'
         raise ValidationError(error_message, code='invalid_language')
+
+    def clean_first_name_to_check_for_symbols(self):
+        if has_only_english(self.cleaned_data['first_name']):
+            return self.cleaned_data['first_name']
+        error_message = 'Name cannot contain \' [, \, ], ^, -, ` \''
+        raise ValidationError(error_message, code='symbol_included')
 
     def clean_middle_name(self):
         if has_only_english(self.cleaned_data['middle_name']):
