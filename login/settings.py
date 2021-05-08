@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'usersignup',
-    # 'validate_user'
+    'validate_user',
     'verify_email',
 ]
 
